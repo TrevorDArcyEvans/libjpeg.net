@@ -3,10 +3,7 @@
     /// <summary>
     /// DCT coefficient quantization tables.
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif    
-    class JQUANT_TBL
+    public class JQUANT_TBL
     {
         /* This field is used only during compression.  It's initialized false when
          * the table is created, and set true when it's been output to the file.

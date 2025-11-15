@@ -6,7 +6,7 @@
 #if EXPOSE_LIBJPEG
     public
 #endif
-    class JBLOCK
+    public class JBLOCK
     {
         internal short[] data = new short[JpegConstants.DCTSIZE2];
 

@@ -6,10 +6,7 @@ namespace BitMiracle.LibJpeg.Classic
     /// The progress monitor object.
     /// </summary>
     /// <seealso href="febdc6af-ca72-4f3b-8cfe-3473ce6a7c7f.htm" target="_self">Progress monitoring</seealso>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    class jpeg_progress_mgr
+    public class jpeg_progress_mgr
     {
         private int m_passCounter;
         private int m_passLimit;

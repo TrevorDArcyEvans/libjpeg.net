@@ -4,10 +4,7 @@
     /// Describes a result of read operation.
     /// </summary>
     /// <seealso cref="jpeg_decompress_struct.jpeg_consume_input"/>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    enum ReadResult
+    public enum ReadResult
     {
         /// <summary>
         /// Suspended due to lack of input data. Can occur only if a suspending data source is used.

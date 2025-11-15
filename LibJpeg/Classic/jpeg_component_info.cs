@@ -5,10 +5,7 @@ namespace BitMiracle.LibJpeg.Classic
     /// <summary>
     /// Basic info about one component (color channel).
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    class jpeg_component_info
+    public class jpeg_component_info
     {
         /* These values are fixed over the whole image. */
         /* For compression, they must be supplied by parameter setup; */

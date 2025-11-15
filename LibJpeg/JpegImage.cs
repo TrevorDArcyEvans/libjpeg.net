@@ -54,14 +54,14 @@ namespace BitMiracle.LibJpeg
         /// </summary>
         private MemoryStream m_decompressedData;
 
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
         /// <summary>
         /// .NET bitmap associated with this image
         /// </summary>
         private Bitmap m_bitmap;
 #endif
 
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
         /// <summary>
         /// Creates <see cref="JpegImage"/> from <see cref="System.Drawing.Bitmap">.NET bitmap</see>
         /// </summary>
@@ -125,7 +125,7 @@ namespace BitMiracle.LibJpeg
             m_colorspace = colorspace;
         }
 
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
         /// <summary>
         /// Creates <see cref="JpegImage"/> from <see cref="System.Drawing.Bitmap">.NET bitmap</see>
         /// </summary>
@@ -160,7 +160,7 @@ namespace BitMiracle.LibJpeg
                     if (m_decompressedData != null)
                         m_decompressedData.Dispose();
 
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
                     if (m_bitmap != null)
                         m_bitmap.Dispose();
 #endif
@@ -170,7 +170,7 @@ namespace BitMiracle.LibJpeg
                 m_compressionParameters = null;
                 m_compressedData = null;
                 m_decompressedData = null;
-#if !NETSTANDARD                
+#if !NETSTANDARD && WINDOWS                
                 m_bitmap = null;
 #endif
                 m_rows = null;
@@ -298,7 +298,7 @@ namespace BitMiracle.LibJpeg
             decompressedData.WriteTo(output);
         }
 
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
         /// <summary>
         /// Retrieves image as .NET Bitmap.
         /// </summary>
@@ -336,7 +336,7 @@ namespace BitMiracle.LibJpeg
             }
         }
 
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
         private Bitmap bitmap
         {
             get
@@ -393,7 +393,7 @@ namespace BitMiracle.LibJpeg
             }
             else
             {
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
                 createFromBitmap(new Bitmap(imageData));
 #else
                 throw new NotImplementedException("JpegImage.createFromStream(Stream)");
@@ -401,7 +401,7 @@ namespace BitMiracle.LibJpeg
             }
         }
 
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
         private void createFromBitmap(System.Drawing.Bitmap bitmap)
         {
             initializeFromBitmap(bitmap);
@@ -469,7 +469,7 @@ namespace BitMiracle.LibJpeg
             jpeg.Decompress(compressedData, dest);
         }
 
-#if !NETSTANDARD
+#if !NETSTANDARD && WINDOWS
         private void processPixelFormat(PixelFormat pixelFormat)
         {
             //See GdiPlusPixelFormats.h for details

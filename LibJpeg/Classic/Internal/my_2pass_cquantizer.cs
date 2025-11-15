@@ -107,7 +107,7 @@ namespace BitMiracle.LibJpeg.Classic.Internal
     /// </summary>
     class my_2pass_cquantizer : jpeg_color_quantizer
     {
-        private struct box
+        private struct Box
         {
             /* The bounds of the box (inclusive); expressed as histogram indexes */
             public int c0min;
@@ -576,7 +576,7 @@ namespace BitMiracle.LibJpeg.Classic.Internal
         /// <summary>
         /// Compute representative color for a box, put it in colormap[icolor]
         /// </summary>
-        private void compute_color(box[] boxlist, int boxIndex, int icolor)
+        private void compute_color(Box[] boxlist, int boxIndex, int icolor)
         {
             /* Current algorithm: mean weighted by pixels (not colors) */
             /* Note it is important to get the rounding correct! */
@@ -584,7 +584,7 @@ namespace BitMiracle.LibJpeg.Classic.Internal
             long c0total = 0;
             long c1total = 0;
             long c2total = 0;
-            box curBox = boxlist[boxIndex];
+            Box curBox = boxlist[boxIndex];
             for (int c0 = curBox.c0min; c0 <= curBox.c0max; c0++)
             {
                 for (int c1 = curBox.c1min; c1 <= curBox.c1max; c1++)
@@ -617,7 +617,7 @@ namespace BitMiracle.LibJpeg.Classic.Internal
         private void select_colors(int desired_colors)
         {
             /* Allocate workspace for box list */
-            box[] boxlist = new box[desired_colors];
+            Box[] boxlist = new Box[desired_colors];
 
             /* Initialize one box containing whole space */
             int numboxes = 1;
@@ -645,7 +645,7 @@ namespace BitMiracle.LibJpeg.Classic.Internal
         /// <summary>
         /// Repeatedly select and split the largest box until we have enough boxes
         /// </summary>
-        private int median_cut(box[] boxlist, int numboxes, int desired_colors)
+        private int median_cut(Box[] boxlist, int numboxes, int desired_colors)
         {
             while (numboxes < desired_colors)
             {
@@ -740,7 +740,7 @@ namespace BitMiracle.LibJpeg.Classic.Internal
         /// Find the splittable box with the largest color population
         /// Returns null if no splittable boxes remain
         /// </summary>
-        private static int find_biggest_color_pop(box[] boxlist, int numboxes)
+        private static int find_biggest_color_pop(Box[] boxlist, int numboxes)
         {
             long maxc = 0;
             int which = -1;
@@ -760,7 +760,7 @@ namespace BitMiracle.LibJpeg.Classic.Internal
         /// Find the splittable box with the largest (scaled) volume
         /// Returns null if no splittable boxes remain
         /// </summary>
-        private static int find_biggest_volume(box[] boxlist, int numboxes)
+        private static int find_biggest_volume(Box[] boxlist, int numboxes)
         {
             int maxv = 0;
             int which = -1;
@@ -780,9 +780,9 @@ namespace BitMiracle.LibJpeg.Classic.Internal
         /// Shrink the min/max bounds of a box to enclose only nonzero elements,
         /// and recompute its volume and population
         /// </summary>
-        private void update_box(box[] boxlist, int boxIndex)
+        private void update_box(Box[] boxlist, int boxIndex)
         {
-            box curBox = boxlist[boxIndex];
+            Box curBox = boxlist[boxIndex];
             bool have_c0min = false;
 
             if (curBox.c0max > curBox.c0min)

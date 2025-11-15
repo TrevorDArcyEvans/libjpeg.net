@@ -3,10 +3,7 @@
     /// <summary>
     /// Data source object for decompression.
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    abstract class jpeg_source_mgr
+    public abstract class jpeg_source_mgr
     {
         private byte[] m_next_input_byte;
         private int m_bytes_in_buffer; /* # of bytes remaining (unread) in buffer */

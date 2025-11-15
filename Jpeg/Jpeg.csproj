@@ -1,44 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{89A3BDA9-830B-4F7F-8F0B-2954576862C5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <RootNamespace>BitMiracle.Jpeg</RootNamespace>
-    <AssemblyName>Jpeg</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
     <OutputPath>..\Result\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\Result\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
+
+    <ItemGroup>
     <Compile Include="..\cdJpeg\ADDON_MESSAGE_CODE.cs">
       <Link>ADDON_MESSAGE_CODE.cs</Link>
     </Compile>
@@ -51,36 +23,20 @@
     <Compile Include="..\cdJpeg\cd_jpeg_error_mgr.cs">
       <Link>cd_jpeg_error_mgr.cs</Link>
     </Compile>
-    <Compile Include="AssemblyVersion.cs" />
-    <Compile Include="bmp_dest_struct.cs" />
-    <Compile Include="bmp_source_struct.cs" />
-    <Compile Include="cjpeg_source_struct.cs" />
-    <Compile Include="djpeg_dest_struct.cs" />
-    <Compile Include="IMAGE_FORMATS.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Program_Compression.cs" />
-    <Compile Include="Program_Decompression.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\AssemblyVersion.cs" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\LibJpeg\LibJpeg.csproj">
-      <Project>{7300CDF5-1C93-4611-8CC9-47FE79F340AB}</Project>
       <Name>LibJpeg</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
   <PropertyGroup>
-    <PreBuildEvent>cd "$(SolutionDir)"
+    <PreBuildEvent Condition="'$(TargetFramework)'=='net90' And '$(OS)'=='Windows'">cd "$(SolutionDir)"
 update_version_info.bat "$(ProjectDir)AssemblyVersion.cs"</PreBuildEvent>
   </PropertyGroup>
 </Project>

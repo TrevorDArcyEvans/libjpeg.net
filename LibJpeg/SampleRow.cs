@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BitMiracle.LibJpeg
 {
     /// <summary>
     /// Represents a row of image - collection of samples.
     /// </summary>
+    [SuppressMessage("Reliability", "CA2022:Avoid inexact read with \'Stream.Read\'")]
 #if EXPOSE_LIBJPEG
-    public
+    public 
 #endif
     class SampleRow
     {

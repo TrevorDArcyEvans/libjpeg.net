@@ -16,10 +16,7 @@ namespace BitMiracle.LibJpeg.Classic
     /// <see cref="jpeg_common_struct"/>, only of <see cref="jpeg_compress_struct"/> 
     /// and <see cref="jpeg_decompress_struct"/>
     /// </remarks>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    abstract class jpeg_common_struct
+    public abstract class jpeg_common_struct
     {
         internal enum JpegState
         {

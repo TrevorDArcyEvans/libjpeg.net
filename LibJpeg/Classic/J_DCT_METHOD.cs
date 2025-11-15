@@ -11,10 +11,7 @@
     /// if high quality is a concern.</remarks>
     /// <seealso cref="jpeg_compress_struct.Dct_method"/>
     /// <seealso cref="jpeg_decompress_struct.Dct_method"/>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    enum J_DCT_METHOD
+    public enum J_DCT_METHOD
     {
         /// <summary>
         /// Slow but accurate integer algorithm.

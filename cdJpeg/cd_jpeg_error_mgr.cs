@@ -2,7 +2,7 @@ using BitMiracle.LibJpeg.Classic;
 
 namespace BitMiracle.cdJpeg
 {
-    class cd_jpeg_error_mgr : jpeg_error_mgr
+    public class cd_jpeg_error_mgr : jpeg_error_mgr
     {
         protected override string GetMessageText(int code)
         {

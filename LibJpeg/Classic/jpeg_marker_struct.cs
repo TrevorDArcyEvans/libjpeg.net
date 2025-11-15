@@ -9,10 +9,7 @@
     /// </remarks>
     /// <seealso cref="jpeg_decompress_struct.Marker_list"/>
     /// <seealso href="81c88818-a5d7-4550-9ce5-024a768f7b1e.htm" target="_self">Special markers</seealso>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    class jpeg_marker_struct
+    public class jpeg_marker_struct
     {
         private byte m_marker;           /* marker code: JPEG_COM, or JPEG_APP0+n */
         private int m_originalLength;   /* # bytes of data in the file */

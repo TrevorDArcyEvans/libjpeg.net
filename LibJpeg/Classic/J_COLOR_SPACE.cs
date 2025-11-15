@@ -4,10 +4,7 @@
     /// Known color spaces.
     /// </summary>
     /// <seealso href="c90654b9-f3f4-4319-80d1-979c73d84e76.htm" target="_self">Special color spaces</seealso>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    enum J_COLOR_SPACE
+    public enum J_COLOR_SPACE
     {
         /// <summary>
         /// Unspecified color space.

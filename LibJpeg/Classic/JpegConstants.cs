@@ -3,10 +3,7 @@
     /// <summary>
     /// Defines some JPEG constants.
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    static class JpegConstants
+    public static class JpegConstants
     {
         //////////////////////////////////////////////////////////////////////////
         // All of these are specified by the JPEG standard, so don't change them

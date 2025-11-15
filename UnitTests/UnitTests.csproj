@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net40;net6.0</TargetFrameworks>
+    <TargetFramework>net90</TargetFramework>
     <AssemblyName>UnitTests</AssemblyName>
     <RootNamespace>UnitTests</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -14,26 +14,28 @@
   </PropertyGroup>  
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants Condition="'$(TargetFramework)'=='net6.0'">TRACE;DEBUG;NETSTANDARD</DefineConstants>
-    <DefineConstants Condition="'$(TargetFramework)'=='net40'">TRACE;DEBUG</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)'=='netstandard2.0'">TRACE;DEBUG;NETSTANDARD</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)'=='net90'">TRACE;DEBUG</DefineConstants>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <NoWarn>1701;1702;NU1701</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants Condition="'$(TargetFramework)'=='net6.0'">TRACE;NETSTANDARD</DefineConstants>
-    <DefineConstants Condition="'$(TargetFramework)'=='net40'">TRACE</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)'=='netstandard2.0'">TRACE;NETSTANDARD</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)'=='net90'">TRACE</DefineConstants>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <NoWarn>1701;1702;NU1701</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net40|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <OutputPath>..\Result\</OutputPath>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net40|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net90|AnyCPU'">
     <OutputPath>..\Result\</OutputPath>
   </PropertyGroup>
   
-  <ItemGroup Condition=" '$(TargetFramework)'=='net40' ">
+  <ItemGroup Condition=" '$(TargetFramework)'=='net90' ">
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

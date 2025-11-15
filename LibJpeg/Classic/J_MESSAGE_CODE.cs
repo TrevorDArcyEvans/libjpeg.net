@@ -8,10 +8,7 @@ namespace BitMiracle.LibJpeg.Classic
     /// Message codes used in code to signal errors, warning and trace messages.
     /// </summary>
     /// <seealso cref="jpeg_error_mgr"/>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    enum J_MESSAGE_CODE
+    public enum J_MESSAGE_CODE
     {
         /// <summary>
         /// Must be first entry!

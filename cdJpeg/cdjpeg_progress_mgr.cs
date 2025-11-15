@@ -9,7 +9,7 @@ namespace BitMiracle.cdJpeg
     /// monitor.  We use an expanded progress monitor object to hold the
     /// additional pass count.
     /// </summary>
-    class cdjpeg_progress_mgr : jpeg_progress_mgr
+    public class cdjpeg_progress_mgr : jpeg_progress_mgr
     {
         public int completed_extra_passes; /* extra passes completed */
         public int total_extra_passes; /* total extra */

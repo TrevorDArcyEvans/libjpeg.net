@@ -3,10 +3,7 @@
     /// <summary>
     /// Huffman coding table.
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    class JHUFF_TBL
+    public class JHUFF_TBL
     {
         /* These two fields directly represent the contents of a JPEG DHT marker */
         private readonly byte[] m_bits = new byte[17];     /* bits[k] = # of symbols with codes of */

@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
+// ReSharper disable StreamReadReturnValueIgnored
 
 namespace BitMiracle.LibJpeg
 {
+    [SuppressMessage("Reliability", "CA2022:Avoid inexact read with \'Stream.Read\'")]
     class BitStream : IDisposable
     {
         private bool m_alreadyDisposed;

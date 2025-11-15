@@ -11,10 +11,7 @@ namespace BitMiracle.LibJpeg.Classic
     /// JPEG decompression routine.
     /// </summary>
     /// <seealso cref="jpeg_compress_struct"/>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    class jpeg_decompress_struct : jpeg_common_struct
+    public class jpeg_decompress_struct : jpeg_common_struct
     {
         /// <summary>
         /// The delegate for application-supplied marker processing methods.

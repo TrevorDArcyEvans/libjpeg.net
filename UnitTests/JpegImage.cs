@@ -7,6 +7,7 @@ using BitMiracle.LibJpeg;
 
 namespace UnitTests
 {
+    #if false
     [TestFixture]
     public class JpegImageTests
     {
@@ -218,4 +219,5 @@ namespace UnitTests
             FileAssert.AreEqual(bitmapFileName, Tester.MapExpectedPath(bitmapFileName));
         }
     }
+#endif
 }

@@ -4,10 +4,7 @@
     /// Dithering options for decompression.
     /// </summary>
     /// <seealso cref="jpeg_decompress_struct.Dither_mode"/>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    enum J_DITHER_MODE
+    public enum J_DITHER_MODE
     {
         /// <summary>
         /// No dithering: fast, very low quality

@@ -3,10 +3,7 @@
     /// <summary>
     /// Supported color transforms.
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    enum J_COLOR_TRANSFORM
+    public enum J_COLOR_TRANSFORM
     {
         /// <summary>
         /// No transform

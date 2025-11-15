@@ -3,10 +3,7 @@
     /// <summary>
     /// Data destination object for compression.
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    abstract class jpeg_destination_mgr
+    public abstract class jpeg_destination_mgr
     {
         private byte[] m_buffer;
         private int m_position;
