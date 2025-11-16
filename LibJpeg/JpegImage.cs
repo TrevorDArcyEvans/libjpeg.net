@@ -17,10 +17,7 @@ namespace BitMiracle.LibJpeg
     /// <summary>
     /// Main class for work with JPEG images.
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    sealed class JpegImage : IDisposable
+    public sealed class JpegImage : IDisposable
     {
         private bool m_alreadyDisposed;
 

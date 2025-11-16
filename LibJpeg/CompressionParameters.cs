@@ -6,10 +6,7 @@ namespace BitMiracle.LibJpeg
     /// Parameters of compression.
     /// </summary>
     /// <remarks>Being used in <see cref="M:BitMiracle.LibJpeg.JpegImage.WriteJpeg(System.IO.Stream,BitMiracle.LibJpeg.CompressionParameters)"/></remarks>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    class CompressionParameters
+    public class CompressionParameters
     {
         private int m_quality = 75;
         private int m_smoothingFactor;

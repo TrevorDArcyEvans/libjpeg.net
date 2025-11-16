@@ -9,10 +9,7 @@ namespace BitMiracle.LibJpeg
     /// but you can use existing samples through <see cref="SampleRow"/> collection. 
     /// Usual scenario is to get row of samples from the <see cref="JpegImage.GetRow"/> method.
     /// </remarks>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    class Sample
+    public class Sample
     {
         private short[] m_components;
         private byte m_bitsPerComponent;

@@ -7,10 +7,7 @@ namespace BitMiracle.LibJpeg
     /// Represents a row of image - collection of samples.
     /// </summary>
     [SuppressMessage("Reliability", "CA2022:Avoid inexact read with \'Stream.Read\'")]
-#if EXPOSE_LIBJPEG
-    public 
-#endif
-    class SampleRow
+    public class SampleRow
     {
         private byte[] m_bytes;
         private Sample[] m_samples;

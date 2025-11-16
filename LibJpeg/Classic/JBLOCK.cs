@@ -3,10 +3,7 @@
     /// <summary>
     /// One block of coefficients.
     /// </summary>
-#if EXPOSE_LIBJPEG
-    public
-#endif
-    public class JBLOCK
+    public  class JBLOCK
     {
         internal short[] data = new short[JpegConstants.DCTSIZE2];
 
