@@ -36,7 +36,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <PreBuildEvent Condition="'$(TargetFramework)'=='net90' And '$(OS)'=='Windows'">cd "$(SolutionDir)"
+    <PreBuildEvent Condition="'$(OS)'=='Windows'">cd "$(SolutionDir)"
 update_version_info.bat "$(ProjectDir)AssemblyVersion.cs"</PreBuildEvent>
   </PropertyGroup>
 </Project>

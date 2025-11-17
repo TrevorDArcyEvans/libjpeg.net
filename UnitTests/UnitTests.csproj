@@ -6,6 +6,7 @@
     <RootNamespace>UnitTests</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Configurations>Debug;Release</Configurations>
+    <OutputPath>..\Result\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -14,28 +15,18 @@
   </PropertyGroup>  
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants Condition="'$(TargetFramework)'=='netstandard2.0'">TRACE;DEBUG;NETSTANDARD</DefineConstants>
-    <DefineConstants Condition="'$(TargetFramework)'=='net90'">TRACE;DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <NoWarn>1701;1702;NU1701</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants Condition="'$(TargetFramework)'=='netstandard2.0'">TRACE;NETSTANDARD</DefineConstants>
-    <DefineConstants Condition="'$(TargetFramework)'=='net90'">TRACE</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <NoWarn>1701;1702;NU1701</NoWarn>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <OutputPath>..\Result\</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net90|AnyCPU'">
-    <OutputPath>..\Result\</OutputPath>
-  </PropertyGroup>
   
-  <ItemGroup Condition=" '$(TargetFramework)'=='net90' ">
+  <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

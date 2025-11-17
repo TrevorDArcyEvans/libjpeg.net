@@ -15,11 +15,7 @@ namespace UnitTests
 
         static Tester()
         {
-#if NETSTANDARD
-            string currentDirectoryPath = Directory.GetCurrentDirectory();
-#else
             string currentDirectoryPath = TestContext.CurrentContext.TestDirectory;
-#endif
             StringBuilder pathToTestcase = new StringBuilder("TestCase\\");
             var dir = new DirectoryInfo(currentDirectoryPath);
             while (dir.Parent != null)

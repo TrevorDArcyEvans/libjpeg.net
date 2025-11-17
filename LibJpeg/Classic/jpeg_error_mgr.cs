@@ -8,10 +8,6 @@
 using System;
 using System.Globalization;
 
-#if NETSTANDARD
-using Console = System.Diagnostics.Debug;
-#endif
-
 namespace BitMiracle.LibJpeg.Classic
 {
     /// <summary>
