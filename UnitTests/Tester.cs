@@ -16,7 +16,7 @@ namespace UnitTests
         static Tester()
         {
             string currentDirectoryPath = TestContext.CurrentContext.TestDirectory;
-            StringBuilder pathToTestcase = new StringBuilder("TestCase\\");
+            StringBuilder pathToTestcase = new StringBuilder($"TestCase{Path.DirectorySeparatorChar}");
             var dir = new DirectoryInfo(currentDirectoryPath);
             while (dir.Parent != null)
             {
@@ -29,7 +29,7 @@ namespace UnitTests
                 }
 
                 dir = dir.Parent;
-                pathToTestcase.Insert(0, "..\\");
+                pathToTestcase.Insert(0, $"..{Path.DirectorySeparatorChar}");
             }
 
             Assert.Fail("Unable to find TestCase directory");
