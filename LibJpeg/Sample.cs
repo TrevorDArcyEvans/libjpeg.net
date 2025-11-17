@@ -32,7 +32,7 @@ namespace BitMiracle.LibJpeg
                 m_components[i] = (short)bitStream.Read(bitsPerComponent);
         }
 
-        internal Sample(short[] components, byte bitsPerComponent)
+        public Sample(short[] components, byte bitsPerComponent)
         {
             if (components == null)
                 throw new ArgumentNullException("components");
