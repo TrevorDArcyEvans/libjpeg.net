@@ -1,13 +1,10 @@
 ﻿using System.Drawing;
 using System.IO;
-
 using NUnit.Framework;
-
 using BitMiracle.LibJpeg;
 
 namespace UnitTests
 {
-    #if false
     [TestFixture]
     public class JpegImageTests
     {
@@ -39,24 +36,6 @@ namespace UnitTests
             }
         }
 
-#if !NETSTANDARD
-        [Test]
-        public void TestCompressionResultsSameAsForCJpeg()
-        {
-            using (JpegImage jpeg = new JpegImage(Tester.MapOpenPath("test24.bmp")))
-            {
-                testJpegOutput(jpeg, "test24.jpg");
-
-                CompressionParameters parameters = new CompressionParameters();
-                parameters.Quality = 25;
-                testJpegOutput(jpeg, parameters, "test24_25.jpg");
-
-                parameters = new CompressionParameters();
-                parameters.SimpleProgressive = true;
-                testJpegOutput(jpeg, parameters, "test24_prog.jpg");
-            }
-        }
-
         [Test, TestCaseSource("DecompressionFiles")]
         public void TestDecompressionResultsSameAsForDJpeg(string fileName)
         {
@@ -67,7 +46,8 @@ namespace UnitTests
         [Test]
         public void TestDecompressionFromCMYKJpeg()
         {
-            using (JpegImage jpeg = new JpegImage(Tester.MapOpenPath("ammerland.jpg")))
+            using var fs = File.OpenRead(Tester.MapOpenPath("ammerland.jpg"));
+            using (JpegImage jpeg = new JpegImage(fs))
             {
                 Assert.AreEqual(jpeg.BitsPerComponent, 8);
                 Assert.AreEqual(jpeg.ComponentsPerSample, 4);
@@ -79,22 +59,11 @@ namespace UnitTests
             }
         }
 
-        [Test, TestCaseSource("BitmapFiles")]
-        public void TestJpegImageFromBitmap(string fileName)
-        {
-            string jpegFileName = fileName.Remove(fileName.Length - 4);
-            jpegFileName += ".jpg";
-
-            using (Bitmap bmp = new Bitmap(Tester.MapOpenPath(fileName)))
-                testJpegFromBitmap(bmp, jpegFileName);
-
-            testJpegFromFile(Tester.MapOpenPath(fileName), jpegFileName);
-        }
-
         [Test]
         public void TestGrayscaleJpegToBitmap()
         {
-            using (JpegImage jpegImage = new JpegImage(Tester.MapOpenPath("turkey.jpg")))
+            using var fs = File.OpenRead(Tester.MapOpenPath("turkey.jpg"));
+            using (JpegImage jpegImage = new JpegImage(fs))
             {
                 testBitmapOutput(jpegImage, "turkey.png");
             }
@@ -110,13 +79,13 @@ namespace UnitTests
                 const string output = "JpegImageFromPixels_20.jpg";
                 testJpegOutput(jpegImage, compressionParameters, output);
 
-                using (JpegImage recompressedImage = new JpegImage(output))
+                using var fs = File.OpenRead(output);
+                using (JpegImage recompressedImage = new JpegImage(fs))
                 {
                     Assert.AreEqual(recompressedImage.Colorspace, jpegImage.Colorspace);
                 }
             }
         }
-#endif
 
         [Test]
         public void TestCreateJpegImageFromPixels()
@@ -164,39 +133,15 @@ namespace UnitTests
             Assert.AreEqual(jpegImage.Colorspace, colorspace);
             return jpegImage;
         }
-
-#if !NETSTANDARD
-        private static void testJpegFromBitmap(Bitmap bmp, string jpegFileName)
-        {
-            using (JpegImage jpeg = new JpegImage(bmp))
-            {
-                Assert.AreEqual(jpeg.Width, bmp.Width);
-                Assert.AreEqual(jpeg.Height, bmp.Height);
-                Assert.AreEqual(jpeg.ComponentsPerSample, 3);//Number of components in Bitmap
-
-                using (FileStream output = new FileStream(jpegFileName, FileMode.Create))
-                    jpeg.WriteJpeg(output);
-            }
-
-            FileAssert.AreEqual(jpegFileName, Tester.MapExpectedPath(jpegFileName));
-        }
-
-        private static void testJpegFromFile(string fileName, string jpegFileName)
-        {
-            using (JpegImage jpeg = new JpegImage(fileName))
-            {
-                testJpegOutput(jpeg, jpegFileName);
-            }
-        }
-
+        
         private static void testBitmapFromFile(string sourceFileName, string bitmapFileName)
         {
-            using (JpegImage jpeg = new JpegImage(sourceFileName))
+            using var fs = File.OpenRead(sourceFileName);
+            using (JpegImage jpeg = new JpegImage(fs))
             {
                 testBitmapOutput(jpeg, bitmapFileName);
             }
         }
-#endif
 
         private static void testJpegOutput(JpegImage jpeg, string jpegFileName)
         {
@@ -219,5 +164,4 @@ namespace UnitTests
             FileAssert.AreEqual(bitmapFileName, Tester.MapExpectedPath(bitmapFileName));
         }
     }
-#endif
 }
