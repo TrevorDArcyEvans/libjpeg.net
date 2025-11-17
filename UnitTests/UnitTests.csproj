@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net90</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <AssemblyName>UnitTests</AssemblyName>
     <RootNamespace>UnitTests</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
