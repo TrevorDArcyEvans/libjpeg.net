@@ -38,5 +38,6 @@
   <PropertyGroup>
     <PreBuildEvent Condition="'$(OS)'=='Windows'">cd "$(SolutionDir)"
 update_version_info.bat "$(ProjectDir)AssemblyVersion.cs"</PreBuildEvent>
+    <PreBuildEvent Condition="'$(OS)'=='Unix'">cd ../..;./update_version_info.sh</PreBuildEvent>
   </PropertyGroup>
 </Project>
