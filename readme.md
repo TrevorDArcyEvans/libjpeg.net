@@ -26,6 +26,38 @@ https://www.nuget.org/packages/BitMiracle.LibJpeg.NET
 Another option is to build the library and tools yourselves.
 
 
+Prerequisites
+============
+* .NET Core 9 or higher
+* git
+* [Windows] cscript
+* [Windows] VBScript
+* [Linux] sed
+
+
+Getting started
+======
+```bash
+# clone repository
+git clone https://github.com/TrevorDArcyEvans/libjpeg.net.git
+cd libjpeg.net
+
+# build LibJpeg
+dotnet restore
+dotnet build
+
+# run tests
+dotnet test
+```
+
+
+Further work
+======
+* support .NET Standard 2.0
+* tests for jpeg creation
+* [Windows] support Windows bitmaps
+
+
 License
 =======
 
